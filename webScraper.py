@@ -17,15 +17,20 @@ pageRequest = requests.get(URL)
 parsedContent = BeautifulSoup(pageRequest.content, 'html5lib')
 #print(parsedContent.prettify())
 
-#for link in parsedContent.find_all('a'):
+table = parsedContent.find('table')
+
+#print(table)
+
+cardList = table.find_all('tr')
+#print(cardList)
+
+for row in cardList:
+    #print(row)
+    secondRow = row.find_all('td')
+    #print("hi")
+
+    if (secondRow != []):
+        print(secondRow[1].find('a').get('href'))
+
+#for link in table.find_all('a'):
     #print(link.get('href'))
-
-for row in parsedContent.find_all('td'):
-    link = row.find('a')
-
-    try:
-        #if 'href' in link.attrs:
-        print(link.get('href'))
-    except:
-        pass
-    #print(link)
