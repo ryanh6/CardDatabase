@@ -9,7 +9,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-URL = "https://cardfight.fandom.com/wiki/Booster_Set_1:_Descent_of_the_King_of_Knights"
+URL = "https://cardfight.fandom.com/wiki/Booster_Set_17:_Blazing_Perdition_ver.E"
 pageRequest = requests.get(URL)
 
 #print(pageRequest.content)
@@ -24,13 +24,16 @@ table = parsedContent.find('table')
 cardList = table.find_all('tr')
 #print(cardList)
 
+count = 0
+
 for row in cardList:
     #print(row)
     secondRow = row.find_all('td')
     #print("hi")
 
     if (secondRow != []):
-        print(secondRow[1].find('a').get('href'))
+        print(str(count) + ": https://cardfight.fandom.com/" + secondRow[1].find('a').get('href'))
+        count = count + 1
 
 #for link in table.find_all('a'):
     #print(link.get('href'))
