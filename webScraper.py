@@ -9,7 +9,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-URL = "https://cardfight.fandom.com/wiki/Booster_Set_17:_Blazing_Perdition_ver.E"
+URL = "https://cardfight.fandom.com/wiki/Booster_Set_1:_Descent_of_the_King_of_Knights"
 pageRequest = requests.get(URL)
 
 #print(pageRequest.content)
